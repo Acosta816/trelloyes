@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Suite for Messges.js Snapshot#1: renders UI as expected  1`] = `
+<div
+  className="messages"
+>
+  Inbox
+  <div
+    className="unread_count"
+    id="wow"
+  >
+    100
+  </div>
+</div>
+`;
+
+exports[`Test Suite for Messges.js Snapshot#2: Renders UI as expected with unread={0} 1`] = `
+<div
+  className="messages"
+>
+  Mail
+</div>
+`;
+
+exports[`Test Suite for Messges.js Snapshot: renders UI as expected  1`] = `
+<div
+  className="messages"
+>
+  Inbox
+  <div
+    className="unread_count"
+    id="wow"
+  >
+    100
+  </div>
+</div>
+`;

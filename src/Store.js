@@ -22,7 +22,7 @@ const STORE = {
         cardIds: [ 'l', 'm' ],
       },
     ],
-    allCards: {
+    cardDirectory: {
       'a': { id: 'a', title: 'First card', content: 'lorem ipsum' },
       'b': { id: 'b', title: 'Second card', content: 'lorem ipsum' },
       'c': { id: 'c', title: 'Third card', content: 'lorem ipsum' },

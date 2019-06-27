@@ -1,45 +1,55 @@
 import React from 'react';
-import List from './List';
 import './App.css';
-import Messages from './messages/Messages';
+import List from './List';
 
-//accepts just this.props.store object.
 
+//Accepts just 1 prop that is the store
+//Should iterate over this.props.storeProp.lists array and make a <List/> for every item in there
+//To access the props, use this.props
 class App extends React.Component {
 
-  static defaultProps = {
-    store: {
-      lists: [],
-      cardDirectory: {},
-    }
-  };
 
-  render() {
-    const { store } = this.props
-    return (
-      <main className='App'>
-      <Messages name="Messages" unread={0} />
-      <Messages name="Notifications" unread={10} />
-        <header className='App-header'>
-          <h1>Trelloyes!</h1>
-        </header>
-        <div className='App-list'>
+  renderCardsProp(cardIdsArray){
 
-          {store.lists.map(list => (
+      const cardsPropVar = cardIdsArray.map(cardID=> {
+        return(
+          this.props.storeProp.allCards[cardID]
+        )
+      })
 
-            <List
-              key={list.id}
-              header={list.header}
-              cards={list.cardIds.map(id => store.cardDirectory[id])} 
-            />
-
-          ))}
-
-        </div>
-      </main>
-    );
+      return cardsPropVar;
   }
 
+
+  render(){
+
+
+    return (
+      <main className="App">
+
+        <header className="App-header">
+          <h1>Trelloyes</h1>
+        </header>
+
+        <div className="App-list">
+        
+        {
+          this.props.storeProp.lists.map(list=> {
+            
+              return(
+                <List key={list.id} headerProp={list.header} cardsProp={this.renderCardsProp(list.cardIds)} />
+    
+              )
+            }
+          )
+        }
+            
+        </div>
+        
+      </main>
+    )
+  }
 }
+
 
 export default App;
